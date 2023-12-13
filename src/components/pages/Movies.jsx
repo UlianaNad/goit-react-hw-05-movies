@@ -1,26 +1,36 @@
-import { fetchTopMovies } from 'components/servises/api';
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { StyledLink } from 'components/NavBar';
+import useHttp from 'components/hooks/useHttp';
+import { fetchMovieById } from 'components/services/api';
+import React from 'react';
+import { Outlet, useParams } from 'react-router-dom';
 
-const Movies = () =>{
-    const [movies, setMovies] = useState([]);
-    useEffect(() => {
-        fetchTopMovies().then((data) => setMovies(data))
-    },[])
+
+const Movie = () => {
+  const { movieId } = useParams();
+  const [movie] = useHttp(fetchMovieById, movieId);
+
+  if (!movie) {
+    return <h2>Loading...</h2>;
+  }
+
   return (
     <div>
-      <ul>
-      {movies.map(movie => (
-        <li key={movie.id}>
-            <Link to={movie.id.toString()} >
-            {movie.original_title} 
-            {/* <img src={movie.poster_path} alt={movie.title} /> */}
-        </Link>
-        </li>
-      ))}
-      </ul>
-    </div>
-  )
-}
+      <img
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        alt={movie.tagline}
+      />
+      <p>{movie.original_title}</p>
+      <p>{movie.overview}</p>
 
-export default Movies
+      <div>
+        <StyledLink to="cast">Cast</StyledLink>
+        <StyledLink to="reviews">Reviews</StyledLink>
+      </div>
+      <div>
+        <Outlet />
+      </div>
+    </div>
+  );
+};
+
+export default Movie;

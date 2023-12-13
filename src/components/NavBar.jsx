@@ -5,8 +5,8 @@ import styled from 'styled-components';
 function NavBar() {
   return (
     <NavLinkWrap>
-      <StyledLink to="/">Home</StyledLink>
-      <StyledLink to="/movies">Movies</StyledLink>
+      <StyledLink to="movies">Home</StyledLink>
+      <StyledLink to="/">Search Movies</StyledLink>
     </NavLinkWrap>
   );
 }
@@ -24,7 +24,7 @@ const NavLinkWrap = styled.nav`
   padding: 40px 20px;
   background-color: aliceblue;
 `;
-const StyledLink = styled(NavLink)`
+export const StyledLink = styled(NavLink)`
 display: flex;
 align-items: center;
 gap: 10px;
