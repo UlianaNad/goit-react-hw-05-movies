@@ -1,23 +1,21 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import NavBar from './NavBar';
 import styled from 'styled-components';
 
 import { createGlobalStyle } from 'styled-components';
 
-
-
 function Layout() {
   return (
-    
-      <WrapperLayout>
-        <GlobalStyle />
-        <NavBar />
-        <WrapperOutlet>
+    <WrapperLayout>
+      <GlobalStyle />
+      <NavBar />
+      <WrapperOutlet>
+        <Suspense fallback={<h1>Loading...</h1>}>
           <Outlet />
-        </WrapperOutlet>
-      </WrapperLayout>
-   
+        </Suspense>
+      </WrapperOutlet>
+    </WrapperLayout>
   );
 }
 

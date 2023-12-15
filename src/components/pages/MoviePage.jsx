@@ -35,8 +35,8 @@ const Movie = () => {
       </WrapperMovie>
       <StyledButton onClick={handleGoBack}>Go back</StyledButton>
       <WrapRoutes>
-        <StyledLink to="cast">Cast</StyledLink>
-        <StyledLink to="reviews">Reviews</StyledLink>
+        <StyledLink  state={location.state} to="cast">Cast</StyledLink>
+        <StyledLink  state={location.state} to="reviews">Reviews</StyledLink>
       </WrapRoutes>
       <div>
         <Outlet />

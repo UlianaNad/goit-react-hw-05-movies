@@ -1,12 +1,13 @@
 import MovieCard from 'components/MovieCard';
 import useHttp from 'components/hooks/useHttp';
 import { fetchMovieBySearch } from 'components/servises/api';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 function SearchMovie() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [value, setValue] = useState('')
 
   const query = searchParams.get('query') || '';
 
@@ -18,18 +19,21 @@ function SearchMovie() {
     movie.original_title.toLowerCase().includes(query.toLowerCase())
   );
 
+  const handleSetSearchQuery = () =>{
+    setSearchParams(value ? {query: value} : {})
+  }
   return (
     <div>
       <WrapSearch>
         <StyledInput
-          value={query}
+          value={value}
           onChange={e =>
-            setSearchParams(e.target.value ? { query: e.target.value } : {})
+            setValue(e.target.value)
           }
           type="text"
           placeholder="Enter movie name"
         />
-        <StyledButton>Search</StyledButton>
+        <StyledButton onClick={handleSetSearchQuery}>Search</StyledButton>
       </WrapSearch>
       <StyledUl>
         {filteredMovies?.map(movie => (
