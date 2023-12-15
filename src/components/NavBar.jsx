@@ -5,8 +5,8 @@ import styled from 'styled-components';
 function NavBar() {
   return (
     <NavLinkWrap>
-      <StyledLink to="movies">Home</StyledLink>
-      <StyledLink to="/">Search Movies</StyledLink>
+      <StyledLink to="/">Home</StyledLink>
+      <StyledLink to="movies">Movies</StyledLink>
     </NavLinkWrap>
   );
 }
@@ -14,21 +14,22 @@ function NavBar() {
 export default NavBar;
 
 const NavLinkWrap = styled.nav`
-  min-height: 100vh;
-  border-right: 2px solid teal;
+  min-width: 100%;
   display: flex;
-  flex-direction: column;
   gap: 25px;
   position: fixed;
   width: 200px;
-  padding: 40px 20px;
-  background-color: aliceblue;
+  padding: 12px 0px;
+  background-color: #c0ebe4;
+  align-content: center;
+  justify-content: center;
 `;
+
 export const StyledLink = styled(NavLink)`
 display: flex;
 align-items: center;
 gap: 10px;
-padding: 5px;
+padding: 10px;
 border-radius: 5px;
 text-decoration: none;
 color: black;
@@ -38,6 +39,6 @@ color: black;
     color: white;
 }
 &:hover:not(.active){
-    background-color: #7ba1a1;
+    background-color: #739696;
 }
 `;

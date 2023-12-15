@@ -1,5 +1,5 @@
 import useHttp from 'components/hooks/useHttp';
-import { fetchReviewsByMovieId } from 'components/services/api';
+import { fetchReviewsByMovieId } from 'components/servises/api';
 import React from 'react'
 import { useParams } from 'react-router-dom'
 

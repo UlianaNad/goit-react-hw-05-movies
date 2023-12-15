@@ -4,18 +4,19 @@ import SearchMovies from './pages/SearchMovies';
 import NotFound from './pages/NotFound';
 import Cast from './pages/Cast';
 import Reviews from './pages/Reviews';
-import HomePage from './pages/HomePage'; // or the correct file name
+import HomePage from './pages/HomePage'; 
 
-import Movies from './pages/Movies';
+import MoviePage from './pages/MoviePage';
+
 
 export const App = () => {
   return (
     <div>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={<SearchMovies />} />
-          <Route path="movies" element={<HomePage />} />
-          <Route path="movies/:movieId" element={<Movies />}>
+          <Route index element={<HomePage />} />
+          <Route path="movies" element={<SearchMovies />} />
+          <Route path="movies/:movieId" element={<MoviePage />}>
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
