@@ -3,7 +3,7 @@ import useHttp from 'components/hooks/useHttp';
 import { fetchTopMovies } from 'components/servises/api';
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { StyledUl } from './Homepage.styled';
+import { StyledH1, StyledUl } from './Homepage.styled';
 
 
 const Movies = () => {
@@ -12,7 +12,7 @@ const Movies = () => {
   const location = useLocation()
   return (
     <div>
-      <h1>Trending today</h1>
+      <StyledH1>Trending today</StyledH1>
       <StyledUl>
         {movies?.map(movie => (
           <li key={movie.id}>

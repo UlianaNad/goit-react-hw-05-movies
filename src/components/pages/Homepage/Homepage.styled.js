@@ -36,3 +36,9 @@ export const StyledMovieName = styled.p`
   font-size: 20px;
   margin: 5px;
 `;
+export const StyledH1 = styled.h1`
+  color: teal;
+  text-align: center;
+  text-shadow: 1px 1px 2px darkolivegreen;
+  margin-bottom: 10px;
+`;

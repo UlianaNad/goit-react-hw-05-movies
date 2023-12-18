@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
 `;
 export const WrapperMovie = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-bottom: 15px;
 `;
 export const StyledImg = styled.img`
