@@ -1,19 +1,8 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
 
-function NavBar() {
-  return (
-    <NavLinkWrap>
-      <StyledLink to="/">Home</StyledLink>
-      <StyledLink to="movies">Movies</StyledLink>
-    </NavLinkWrap>
-  );
-}
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
-export default NavBar;
-
-const NavLinkWrap = styled.nav`
+export  const NavLinkWrap = styled.nav`
   min-width: 100%;
   display: flex;
   gap: 25px;
@@ -25,7 +14,7 @@ const NavLinkWrap = styled.nav`
   justify-content: center;
 `;
 
-export const StyledLink = styled(NavLink)`
+export  const StyledLink = styled(NavLink)`
 display: flex;
 align-items: center;
 gap: 10px;

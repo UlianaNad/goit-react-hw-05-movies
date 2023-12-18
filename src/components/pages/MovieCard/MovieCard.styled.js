@@ -1,24 +1,4 @@
-import React from 'react';
-import styled from 'styled-components';
-import ImageNull from './ImageNull';
-
-const MovieCard = ({ movie }) => {
-  return (
-    <StyledItem>
-      <StyledMovieName>{movie.original_title}</StyledMovieName>
-      {movie.poster_path !== null ? (
-        <StyledImage
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          alt={movie.tagline}
-        />
-      ) : (
-        <ImageNull />
-      )}
-    </StyledItem>
-  );
-};
-
-export default MovieCard;
+import styled from "styled-components";
 
 export const StyledItem = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);

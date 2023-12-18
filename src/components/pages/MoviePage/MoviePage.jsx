@@ -1,10 +1,11 @@
-import { StyledLink } from 'components/NavBar';
+
 import useHttp from 'components/hooks/useHttp';
 import { fetchMovieById } from 'components/servises/api';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { StyledButton } from './SearchMovies';
-import styled from 'styled-components';
+import { StyledImg, TextWrap, WrapRoutes, Wrapper, WrapperMovie } from './Moviepage.styled';
+import { StyledButton } from '../SearchMovie/SearchMovie.styled.';
+import { StyledLink } from 'components/NavBar/NavBar.styled';
 
 const Movie = () => {
   const { movieId } = useParams();
@@ -38,37 +39,12 @@ const Movie = () => {
         <StyledLink  state={location.state} to="cast">Cast</StyledLink>
         <StyledLink  state={location.state} to="reviews">Reviews</StyledLink>
       </WrapRoutes>
-      <div>
+      <Suspense fallback={<h2>Loading...</h2>}>
         <Outlet />
-      </div>
+      </Suspense>
     </Wrapper>
   );
 };
 
 export default Movie;
 
-export const Wrapper = styled.div`
-  padding: 10px;
-`;
-export const WrapperMovie = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-`;
-export const StyledImg = styled.img`
-  width: 300px;
-  border-radius: 10px;
-`;
-export const TextWrap = styled.div`
-  margin-left: 10px;
-  display: flex;
-  flex-direction: column;
-`;
-export const WrapRoutes = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  background-color: #9fe7db;
-  margin-top: 10px;
-  padding: 6px;
-`;
